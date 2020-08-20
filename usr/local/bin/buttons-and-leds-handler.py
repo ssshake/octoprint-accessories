@@ -32,7 +32,7 @@ while True: #infinite loop
                 blink();
         if stopButton.is_pressed:
             print("this would have shut down.....")
-            #os.system("/usr/local/bin/shutdown-with-printer")
+            os.system("/usr/local/bin/shutdown-with-printer")
             while True:
                 blink()
      sleep(1) # wait for the hold time we want. 
