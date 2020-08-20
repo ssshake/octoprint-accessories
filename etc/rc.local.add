@@ -1,0 +1,3 @@
+#/usr/local/bin/on &
+/usr/local/bin/buttons-and-leds-handler.py &> /tmp/custom.log 2>&1
+

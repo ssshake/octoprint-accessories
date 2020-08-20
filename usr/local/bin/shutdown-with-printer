@@ -1,0 +1,4 @@
+sudo /usr/local/bin/off
+sleep 3
+echo "--------------------------------------------------- WOULD HAVE SHUT DOWN"
+#sudo shutdown -h now

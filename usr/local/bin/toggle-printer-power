@@ -1,0 +1,10 @@
+#!/bin/bash
+lockfile="/tmp/printer-on"
+
+if test -f "$lockfile"; then
+	echo "printer is already on, turning off";
+	/usr/local/bin/off
+else 
+	echo "printer is off, turning on"
+	/usr/local/bin/on
+fi

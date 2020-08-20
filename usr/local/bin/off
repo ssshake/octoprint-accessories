@@ -1,0 +1,10 @@
+source /home/pi/octoprint-accessories/.env
+wget "https://maker.ifttt.com/trigger/3dprinter_off/with/key/$IFTTTKEY" -O /dev/null 
+
+echo "-->> PRINTER OFF"
+
+lockfile="/tmp/printer-on"
+
+if test -f "$lockfile"; then
+	rm $lockfile
+fi

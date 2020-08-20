@@ -1,0 +1,4 @@
+source /home/pi/octoprint-accessories/.env
+wget "https://maker.ifttt.com/trigger/3dprinter_on/with/key/$IFTTTKEY" -O /dev/null &&
+echo "---->> PRINTER ON"
+touch /tmp/printer-on
