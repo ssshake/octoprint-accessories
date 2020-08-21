@@ -22,18 +22,20 @@ while True: #infinite loop
      if printerButton.is_pressed: #Check to see if button is pressed
         led.pulse()
         sleep(2)
-        blink()
-        blink()
-        blink()
-        led.value = 1
         if printerButton.is_pressed:
-            os.system("/usr/local/bin/toggle-printer-power")
-            sleep(1)
-            for x in range(10):
-                if printerButton.is_pressed:
-                    blink();
+            blink()
+            blink()
+            blink()
+            led.value = 1
             if printerButton.is_pressed:
-                print("YOU should check if printer is on, and if so send command to preheat")
+                os.system("/usr/local/bin/toggle-printer-power")
+                sleep(1)
+                for x in range(10):
+                    if printerButton.is_pressed:
+                        blink();
+                if printerButton.is_pressed:
+                    print("YOU should check if printer is on, and if so send command to preheat")
+        led.value = 1
      if stopButton.is_pressed: #Check to see if button is pressed
         for x in range(10):            
             if stopButton.is_pressed:
