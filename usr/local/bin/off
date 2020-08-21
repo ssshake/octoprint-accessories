@@ -1,3 +1,4 @@
+#!/bin/bash
 source /home/pi/octoprint-accessories/.env
 wget "https://maker.ifttt.com/trigger/3dprinter_off/with/key/$IFTTTKEY" -O /dev/null 
 
