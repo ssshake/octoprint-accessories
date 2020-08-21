@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 from gpiozero import Button #import button from the Pi GPIO library
-from gpiozero import LED
+from gpiozero import PWMLED
 
 from time import sleep # import time functions
 import os #imports OS library for Shutdown control
 
-led = LED(18) 
+led = PWMLED(18) 
 stopButton = Button(3) # defines the button as an object and chooses GPIO 26
 printerButton = Button(4)
 
-led.on()
+led.value = 1
 
 def blink():
     led.off()
@@ -20,12 +20,20 @@ def blink():
 
 while True: #infinite loop
      if printerButton.is_pressed: #Check to see if button is pressed
-        for x in range(10):            
-            if printerButton.is_pressed:
-                blink();
+        led.pulse()
+        sleep(2)
+        blink()
+        blink()
+        blink()
+        led.value = 1
         if printerButton.is_pressed:
-            print("this would have shut toggled the printer down.....")
             os.system("/usr/local/bin/toggle-printer-power")
+            sleep(1)
+            for x in range(10):
+                if printerButton.is_pressed:
+                    blink();
+            if printerButton.is_pressed:
+                print("YOU should check if printer is on, and if so send command to preheat")
      if stopButton.is_pressed: #Check to see if button is pressed
         for x in range(10):            
             if stopButton.is_pressed:
